@@ -1,0 +1,4 @@
+C:\>gem install --local C:\lamp\www\site_institucional\rubygems-update-2.6.7.gem
+C:\>update_rubygems --no-ri --no-rdoc
+
+http://guides.rubygems.org/ssl-certificate-update/#installing-using-update-packages

@@ -1,0 +1,49 @@
+---
+layout: default
+---
+
+<div class="home">
+	<div class="row">
+		<div class="container">
+			<h1 class="page-heading">Posts by JSON (_data)</h1>
+			
+			<ul class="post-list">
+				{% for post in site.data.posts %}
+					{% assign newDate = post.date | split: ' ' %}
+					{% assign newDate = newDate[0] | split: '-' %}
+					{% capture newUrl %}
+						posts/{{ newDate[0] }}/{{ newDate[1] }}/{{ newDate[2] }}
+					{% endcapture %}
+					
+					<li>
+						<span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+						
+						<h2>
+							<a class="post-link" href="{{ post.title | datapage_url: newUrl }}">{{ post.title }}</a>
+						</h2>
+					</li>
+				{% endfor %}
+			</ul>
+		</div>
+	</div>
+	
+	<!--<div class="row">-->
+		<!--<div class="container">-->
+			<!--<h1 class="page-heading">Posts Files</h1>-->
+			<!---->
+			<!--<ul class="post-list">-->
+				<!--{% for post in site.posts %}-->
+				<!--<li>-->
+					<!--<span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>-->
+					<!---->
+					<!--<h2>-->
+						<!--<a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>-->
+					<!--</h2>-->
+				<!--</li>-->
+				<!--{% endfor %}-->
+			<!--</ul>-->
+		<!--</div>-->
+	<!--</div>-->
+	
+	<!--<p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>-->
+</div>
